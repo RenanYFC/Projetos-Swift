@@ -11,15 +11,17 @@ Enunciado:
 
 import Foundation
 
-print("Digite a base do retângulo: ",terminator:"")
-let base = Double(readLine()!)!
+func areaRetangulo() {
+    print("Digite a base do retângulo: ",terminator:"")
+    let base = Double(readLine()!)!
 
-print("Digite a altura do retângulo: ",terminator:"")
-let altura = Double(readLine()!)!
+    print("Digite a altura do retângulo: ",terminator:"")
+    let altura = Double(readLine()!)!
 
-let area = base*altura
+    let area = base*altura
 
-print("Área = \( String(format:"%.2f",area) )")
+    print("Área = \( String(format:"%.2f",area) )")
+}
 
 
 

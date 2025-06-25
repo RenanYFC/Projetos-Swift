@@ -10,10 +10,13 @@ Enunciado:
 
 import Foundation
 
-print ("Insira o valor em °C: ")
+func conversorTemperatura() {
+    print ("Insira o valor em °C: ")
 
-let celsius = Double(readLine()!)!
+    let celsius = Double(readLine()!)!
 
-let fah = (celsius*9/5)+32
+    let fah = (celsius*9/5)+32
 
-print("F=\( String(format: "%.2f",(fah)) )")
+    print("F=\( String(format: "%.2f",(fah)) )")
+}
+

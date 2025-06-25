@@ -1,17 +1,20 @@
 import Foundation
 
-print("informe a idade em dias: ",terminator:"")
-let dias = Int(readLine()!)!
+func conversorIdades() {
+    print("informe a idade em dias: ",terminator:"")
+    let dias = Int(readLine()!)!
 
-let anos = (dias/365)
+    let anos = (dias/365)
 
-let mesesRestantes = dias%365/30
+    let mesesRestantes = dias%365/30
 
-let diasRestantes = dias%365%30
+    let diasRestantes = dias%365%30
 
 
-print("""
-\(anos) ano(s)
-\(mesesRestantes) mes(es)
-\(diasRestantes) dia(s)
-""")
+    print("""
+    \(anos) ano(s)
+    \(mesesRestantes) mes(es)
+    \(diasRestantes) dia(s)
+    """)
+}
+

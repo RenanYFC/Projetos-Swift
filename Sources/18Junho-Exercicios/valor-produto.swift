@@ -13,16 +13,18 @@ Enunciado:
 
 import Foundation
 
-print("Digite o nome do produto: ",terminator:"")
-let nome = readLine()!
+func valorProduto() {
+    print("Digite o nome do produto: ",terminator:"")
+    let nome = readLine()!
 
-print("Digite o valor unitário do produto: ",terminator:"")
-let valorUn = Double(readLine()!)!
+    print("Digite o valor unitário do produto: ",terminator:"")
+    let valorUn = Double(readLine()!)!
 
-print("Digite a quantidade de produtos: ",terminator:"")
-let qtdd = Int(readLine()!)!
+    print("Digite a quantidade de produtos: ",terminator:"")
+    let qtdd = Int(readLine()!)!
 
-let valorTotal = valorUn*Double(qtdd)
+    let valorTotal = valorUn*Double(qtdd)
 
-// Ele entende que, caso haja ponto flutuante, limitar em 2 casas
-print("Total de \(nome) = R$ \( String(format:"%.2f",(valorTotal)) )")
+    // Ele entende que, caso haja ponto flutuante, limitar em 2 casas
+    print("Total de \(nome) = R$ \( String(format:"%.2f",(valorTotal)) )")
+}

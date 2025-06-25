@@ -12,11 +12,13 @@ Enunciado:
 
 import Foundation
 
-print("Digite o 1º valor decimal: ", terminator: "")
-let n1 = Double(readLine()!)!
+func mediaPonderada() {
+    print("Digite o 1º valor decimal: ", terminator: "")
+    let n1 = Double(readLine()!)!
 
-print("Digite o 2º valor decimal: ", terminator: "")
-let n2 = Double(readLine()!)!
+    print("Digite o 2º valor decimal: ", terminator: "")
+    let n2 = Double(readLine()!)!
 
-let media = ((n1*3)+(n2*2))/5
-print ("M= \( String(format: "%.2f",(media)) )")
+    let media = ((n1*3)+(n2*2))/5
+    print ("M= \( String(format: "%.2f",(media)) )")
+}
