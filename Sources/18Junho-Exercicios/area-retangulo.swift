@@ -20,3 +20,6 @@ let altura = Double(readLine()!)!
 let area = base*altura
 
 print("Área = \( String(format:"%.2f",area) )")
+
+
+

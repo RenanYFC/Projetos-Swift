@@ -10,6 +10,8 @@ Enunciado:
 
 */
 
+import Foundation
+
 print("Digite o 1º valor decimal: ", terminator: "")
 let n1 = Double(readLine()!)!
 
