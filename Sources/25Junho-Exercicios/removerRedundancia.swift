@@ -1,3 +1,7 @@
+/**
+Enunciado:
+Crie um programa que recebe um array e remove os números duplicados.
+*/
 func removerRedundancia() {
     let arr = [1,1,2,2,3,3,4,5,5,6,7,8,8,1]
     var arrUnique:[Int] = []

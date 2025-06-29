@@ -1,3 +1,7 @@
+/**
+Enunciado:
+Crie um programa que recebe duas arrays e imprime a intersecção entre elas. 
+*/
 func interseccaoArrays() {
     let arr1 = [1,2,3,4,5,]
     let arr2 = [3,4,5,6,7,8]

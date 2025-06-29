@@ -1,3 +1,8 @@
+/**
+Enunciado:
+Crie um programa que recebe um array de inteiros e imprime a
+soma de todos os valores do array.
+*/
 func somaArray() {
     let arr = [1,2,3,4]
     var soma = 0
