@@ -11,6 +11,7 @@ Funcionalidades necessárias:
 • adicionarTarefa() – Lê uma descrição do usuário e adiciona à lista.
 • removerTarefa() – Pede o número da tarefa e a remove.
 • editarTarefa() – Permite alterar o texto de uma tarefa.
+• alterarPrioridade() - Permite alterar a prioridade das tarefas
 • encerrarPrograma() – Encerra o app quando o usuário digita 0.
 Obs: Implemente as funções abaixo, cada uma com uma única responsabilidade
 
@@ -30,6 +31,7 @@ func exibirMenu() {
     Digite 2 para adicionar tarefas
     Digite 3 para remover tarefas
     Digite 4 para editar uma tarefa
+    Digite 5 para alterar a prioridade de uma tarefa
     Digite 0 para encerrar o programa
     
     """
@@ -46,7 +48,6 @@ func exibirMenu() {
                     if tarefasGlobal.count > 0 {
                         print("=== Suas Tarefas ===")
                         exibirTarefas(tarefas: tarefasGlobal)
-                    
                     }
                     else {
                         print ("Você não possui tarefas!")
@@ -59,7 +60,7 @@ func exibirMenu() {
                     if let descricaoTarefa = descricaoTarefa {
                         if (!descricaoTarefa.isEmpty) {
                             print("Adicionado com sucesso!\n")
-                            adicionarTarefa(descricaoTarefa: descricaoTarefa, tarefas: tarefasGlobal)
+                            tarefasGlobal = adicionarTarefa(descricaoTarefa: descricaoTarefa, tarefas: tarefasGlobal)
                         }
                         else {
                             print("Insira um valor válido!\n")
@@ -78,7 +79,7 @@ func exibirMenu() {
                     if let indiceTarefaInt = Int(indiceTarefa) {
                         
                         if(indiceTarefaInt <= tarefasGlobal.count-1 && indiceTarefaInt >= 0) {
-                            removerTarefa(indiceTarefa: indiceTarefaInt, tarefas: tarefasGlobal)
+                            tarefasGlobal = removerTarefa(indiceTarefa: indiceTarefaInt, tarefas: tarefasGlobal)
                         }
                         else {
                             print("Essa tarefa não existe\n")
@@ -104,7 +105,7 @@ func exibirMenu() {
                                 
                                 if let descricaoTarefa = descricaoTarefa {
                                     if (!descricaoTarefa.isEmpty) {
-                                        editarTarefa(indiceTarefa: indiceTarefaInt, descricaoTarefa: descricaoTarefa, tarefas: tarefasGlobal)
+                                        tarefasGlobal = editarTarefa(indiceTarefa: indiceTarefaInt, descricaoTarefa: descricaoTarefa, tarefas: tarefasGlobal)
                                     }
                                     else {
                                         print("Insira um valor válido!\n")
@@ -123,6 +124,20 @@ func exibirMenu() {
                     else {
                         print("\nNenhum valor recebido, encerrando o programa...")
                     }
+                case 5:
+                    print("Digite o índice da tarefa que você quer alterar a prioridade: ", terminator:"")
+                    let indiceDigitado = readLine()
+                    if let indiceDigitado = indiceDigitado {
+                        if let indiceDigitadoInt = Int(indiceDigitado) {
+                            print("Agora digite a prioridade que você quer que ela receba (de 0 até \(tarefasGlobal.count-1)): ", terminator:"")
+                            
+                            if let novoIndice = readLine() {
+                                if let novoIndiceInt = Int(novoIndice) {
+                                    tarefasGlobal = alterarPrioridade(indiceAntigo: indiceDigitadoInt, indiceNovo: novoIndiceInt, tarefas: tarefasGlobal)
+                                }
+                            }
+                        }
+                    }
                 default:
                     print("Valor não correspondente!")
                     exibirMenu()
@@ -138,18 +153,18 @@ func exibirMenu() {
     return
 }
 
-func adicionarTarefa(descricaoTarefa: String, tarefas: [String]) {
+func adicionarTarefa(descricaoTarefa: String, tarefas: [String]) -> [String] {
     var listaTarefasLocal = tarefas
     listaTarefasLocal.append(descricaoTarefa)
-    return tarefasGlobal = listaTarefasLocal
+    return listaTarefasLocal
 }
 
-func removerTarefa(indiceTarefa: Int, tarefas: [String]) {
+func removerTarefa(indiceTarefa: Int, tarefas: [String]) -> [String] {
 
     var listaTarefasLocal = tarefas
     listaTarefasLocal.remove(at:indiceTarefa)
     print("Remoção feita com sucesso!\n")
-    return tarefasGlobal = listaTarefasLocal
+    return listaTarefasLocal
     
 }
 
@@ -164,16 +179,27 @@ func exibirTarefas(tarefas: [String]) {
     return
 }
 
-func editarTarefa(indiceTarefa: Int, descricaoTarefa: String, tarefas: [String]) {
+func editarTarefa(indiceTarefa: Int, descricaoTarefa: String, tarefas: [String]) -> [String] {
 
     var listaTarefasLocal = tarefas
     
     listaTarefasLocal[indiceTarefa] = descricaoTarefa
     print("Alterado com sucesso!\n")
     
-    return tarefasGlobal = listaTarefasLocal
+    return listaTarefasLocal
 
 }
+
+func alterarPrioridade(indiceAntigo: Int, indiceNovo: Int, tarefas: [String]) -> [String] {
+    
+    var listaTarefasLocal = tarefas
+    let backupTarefas = listaTarefasLocal[indiceAntigo]
+    listaTarefasLocal.remove(at: indiceAntigo)
+    listaTarefasLocal.insert(backupTarefas, at: indiceNovo)
+    print("Alterado com sucesso!")
+    return listaTarefasLocal
+}
+
 /**
 while parar == false {
     exibirMenu()    
