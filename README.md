@@ -26,4 +26,4 @@ Funcionalidades necessárias:
 Obs: Implemente as funções abaixo, cada uma com uma única responsabilidade.
 
 O projeto final foi publicado no YouTube:
-https://youtu.be/Z0NEi1Z3_LM
+https://youtu.be/BLT4NrGzHmU
